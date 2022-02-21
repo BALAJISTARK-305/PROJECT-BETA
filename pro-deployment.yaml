@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-z
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: project-z
+  template:
+    metadata:
+      labels:
+        app: project-z
+    spec:
+      containers:
+      - name: project-z
+        image: "balajistark/projectbeta:1.0"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
